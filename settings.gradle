@@ -1,0 +1,6 @@
+rootProject.name = 'eblo'
+include 'eblo-common'
+include 'eblo-module-notice'
+include 'eblo-module-customer'
+include 'eblo-component-web'
+include 'eblo-component-mobile'
