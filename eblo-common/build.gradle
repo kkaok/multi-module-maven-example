@@ -22,6 +22,7 @@ dependencyManagement {
 }
 
 dependencies {
+    // lombok, test 설정 시작 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testCompileOnly 'org.projectlombok:lombok'
@@ -30,38 +31,56 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    api 'org.apache.commons:commons-lang3:3.12.0'
-    api 'commons-codec:commons-codec:1.9'
-    api 'commons-io:commons-io:2.6'
-    api 'com.google.code.gson:gson:2.8.7'
-    api 'com.google.guava:guava:28.2-jre'
-    api 'eu.bitwalker:UserAgentUtils:1.21'
-    api 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.9'
-    api 'org.modelmapper:modelmapper:2.3.8'
+    // lombok, test 설정 시작
+
+    // spring boot web 설정 
     api('org.springframework.boot:spring-boot-starter-web') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
     }
+
+    // apache common library 시작 
+    api 'org.apache.commons:commons-lang3:3.12.0'
+    api 'commons-codec:commons-codec:1.9'
+    api 'commons-io:commons-io:2.6'
+    // apache common library 끝  
+
+    // json, xml 관련 설정 시작 
+    api 'com.google.code.gson:gson:2.8.7'
+    api 'com.google.guava:guava:28.2-jre'
+    api 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.9'
+    api 'com.fasterxml.jackson.core:jackson-databind'
+    // json, xml 관련 설정 끝  
+    
+    // modelmapper 설정 
+    api 'org.modelmapper:modelmapper:2.3.8'
 
     // cache 관련 설정 시작
     api 'org.springframework.boot:spring-boot-starter-cache'
     api 'org.springframework.boot:spring-boot-starter-data-redis'
     api 'io.lettuce:lettuce-core:6.1.2.RELEASE'
     // cache 관련 설정 끝
-    api 'org.springframework.boot:spring-boot-starter-validation'
+    // aop 설정 
     api 'org.springframework.boot:spring-boot-starter-aop'
+    // web client 설정 
     api 'org.springframework.boot:spring-boot-starter-webflux'
-    api 'ch.qos.logback:logback-classic:1.2.3'
+    // logback에서 xml에 if 조건을 사용할 때 필요 
     api 'org.codehaus.janino:janino:3.0.12'
-    api 'com.zaxxer:HikariCP:3.4.5'
+    // jpa jdbc 관련 설정 시작  
     api 'org.springframework.boot:spring-boot-starter-data-jpa'
-    api 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    api 'org.springframework.boot:spring-boot-starter-jdbc'
+    runtimeOnly 'mysql:mysql-connector-java'
+    // jpa jdbc 관련 설정 끝  
+
+    // freemarker 설정 
     api 'org.springframework.boot:spring-boot-starter-freemarker'
+    // hystrix 관련 설정 시작 
     api 'org.springframework.cloud:spring-cloud-starter-bootstrap:3.0.4'
     api 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.2.9.RELEASE'
+    // hystrix 관련 설정 끝  
+   
+    // httpclient 설정 
     api 'org.apache.httpcomponents:httpclient:4.5'
-    api 'com.fasterxml.jackson.core:jackson-databind'
+    // amqp 설정 
     api 'org.springframework.boot:spring-boot-starter-amqp'
+    // sftp, ssh 관련 설정 
     api 'com.jcraft:jsch:0.1.55'
-    runtimeOnly 'mysql:mysql-connector-java'
 }
